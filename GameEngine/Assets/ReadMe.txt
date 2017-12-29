@@ -1,0 +1,2 @@
+USE_E 编辑器不打包
+USE_S 编辑器打包StreamingAssets 测试assetbundle是否正确

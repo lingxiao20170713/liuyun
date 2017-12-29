@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.Company.GameEngine"
+    android:installLocation="preferExternal"
+    android:versionCode="1"
+    android:versionName="1.0">
+  <!-- 请求网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+  <!--照相机-->
+    <uses-permission android:name="android.permission.CAMERA" />
+  <!--网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <!--手机状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <!--写入扩展存储，向扩展卡写入数据，用于写入缓存定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
+  <!--读取缓存数据-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <!-- 需要运行时注册的权限 -->
+    <!--用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--用于提高GPS定位速度-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!-- 更改设置 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 3.2.0版本增加 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 3.2.0版本增加-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+  <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
+  <application android:theme="@style/UnityThemeSelector" android:icon="@drawable/app_icon" android:label="@string/app_name" android:debuggable="true" android:isGame="true" android:banner="@drawable/app_banner">
+    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:label="@string/app_name" android:screenOrientation="fullSensor" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+    </activity>
+    <!--wechat-->
+    <activity
+        android:name="com.Company.GameEngine.wxapi.WXEntryActivity"
+        android:exported="true"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoDisplay" />
+
+    <!-- 微信支付-->
+    <activity
+        android:name="com.Company.GameEngine.wxapi.WXPayEntryActivity"
+        android:exported="true"
+        android:launchMode="singleTop" />
+    <!-- 设置key --><!--
+    <meta-data android:name="com.amap.api.v2.apikey" android:value="@string/navi_key" />-->
+    <!-- 定位需要的服务 -->
+    <service android:name="com.amap.api.location.APSService" />
+  </application>
+  <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22"/>
+  <uses-feature android:glEsVersion="0x00020000" />
+  <!--读取系统日志-->
+  <uses-permission android:name="android.permission.READ_LOGS" />
+
+  <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+  <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+  <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false" />
+
+</manifest>
